@@ -1,9 +1,9 @@
 # collections.abc new as of 3.3, and collections is deprecated. collections
 # will be unavailable in 3.9
 try:
-    import collections.abc as collections
+    from collections.abc import Iterable
 except ImportError:
-    import collections
+    from collections import Iterable
 
 import datetime
 import logging
@@ -30,7 +30,7 @@ class MarathonJsonEncoder(json.JSONEncoder):
         if isinstance(obj, datetime.datetime):
             return obj.strftime('%Y-%m-%dT%H:%M:%S.%fZ')
 
-        if isinstance(obj, collections.Iterable) and not isinstance(obj, str):
+        if isinstance(obj, Iterable) and not isinstance(obj, str):
             try:
                 return {k: self.default(v) for k, v in obj.items()}
             except AttributeError:
@@ -50,7 +50,7 @@ class MarathonMinimalJsonEncoder(json.JSONEncoder):
         if isinstance(obj, datetime.datetime):
             return obj.strftime('%Y-%m-%dT%H:%M:%S.%fZ')
 
-        if isinstance(obj, collections.Iterable) and not isinstance(obj, str):
+        if isinstance(obj, Iterable) and not isinstance(obj, str):
             try:
                 return {k: self.default(v) for k, v in obj.items() if (v or v in (False, 0))}
             except AttributeError:
