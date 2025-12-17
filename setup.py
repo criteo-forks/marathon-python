@@ -6,7 +6,7 @@ extra = {}
 
 setup(
     name='marathon',
-    version='0.13.0',
+    version='0.14.0',
     description='Marathon Client Library',
     long_description="""Python interface to the Mesos Marathon REST API.""",
     author='Mike Babineau',
@@ -23,8 +23,8 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.11',
         'Programming Language :: Python',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ],
